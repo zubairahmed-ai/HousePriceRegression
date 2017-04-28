@@ -62,7 +62,7 @@ dataset_preprocessed = pd.get_dummies(dataset)
 train_preprocessed = dataset_preprocessed[:train_num]
 test_preprocessed = dataset_preprocessed[train_num:]
 
-cm = dict()
+cm = {}
 # sns.set(font_scale=.7)
 # hm = sns.heatmap(cm, cbar=True, annot=True, square=True, fmt='.2f', annot_kws={'size': 15}, yticklabels=cols, xticklabels=cols)
 # sns.plt.show()
@@ -83,6 +83,11 @@ for col in train_preprocessed.columns:
     # sns.plt.show()
     # global count
     # count += 1
+# print [value for (key,value) in  sorted(cm, reverse=True, key=cm.__getitem__)]
 
-print cm
+print ["{0}-{1}".format(x, cm[x]) for x in sorted(cm, reverse=True, key=cm.__getitem__)]
 
+# for x in cm:
+#     print "{0}-{1}".format(x, cm[x])
+
+# print cm

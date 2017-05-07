@@ -10,6 +10,7 @@ import seaborn as sns
 from sklearn.ensemble import RandomForestRegressor
 import math
 from scipy.stats import skew
+import collections
 
 import matplotlib.pyplot as plt
 
@@ -81,14 +82,7 @@ for est in range(360,550,20):
     print "RMSE: {0} - est: {1}".format(str(rmse), est)
     print "10 Most Important Variables:" + str(imp[:10])
     rmse_est[rmse]= est
-    # if rmse < 29657:
-    #     print 'generating file'
-    #     y_test_pred = model.predict(test_preprocessed)
-    #     submission = pd.DataFrame({"Id": test_preprocessed["Id"],"SalePrice": y_test_pred})
-    #     submission.loc[submission['SalePrice'] <= 0, 'SalePrice'] = 0
-    #     fileName = "submission_{0}_.csv".format(rmse)
-    #     submission.to_csv(fileName, index=False)
-import collections
+
 d = collections.OrderedDict(sorted(rmse_est.items()))
 # print d.items()[0][1]
 # exit()
